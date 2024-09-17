@@ -6,7 +6,7 @@ import moment from "moment";
 const FormPage = () => {
   const [form, setForm] = useState({
     email: "",
-    password: "",
+    nama_lengkap: "",
   });
 
   const [inputList, setInputList] = useState([]);
@@ -26,7 +26,7 @@ const FormPage = () => {
     doc.setFontSize(12);
     doc.text(`Email: ${form.email}`, 50, 10);
     doc.setFontSize(20);
-    doc.text(`Password: ${form.password}`, 70, 80);
+    doc.text(`Password: ${form.nama_lengkap}`, 70, 80);
 
     const timeStamp = moment().format("YYYY-MM-DD-h:mm:ss");
     const fileName = `pdf-download_${timeStamp}.pdf`;
@@ -34,19 +34,17 @@ const FormPage = () => {
 
     setForm({
       email: "",
-      password: "",
+      nama_lengkap: "",
     });
   };
 
   return (
-    <div>
-      <Form
-        form={form}
-        handleChange={handleChange}
-        handleConvertPdf={handleConvertPdf}
-        inputList={inputList}
-      />
-    </div>
+    <Form
+      form={form}
+      handleChange={handleChange}
+      handleConvertPdf={handleConvertPdf}
+      inputList={inputList}
+    />
   );
 };
 
